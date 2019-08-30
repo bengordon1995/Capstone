@@ -6,16 +6,16 @@ public class CharacterController : MonoBehaviour
 {
 
 	public float speed;
- 
  	private Rigidbody2D rigid;
-
  	public float horizontal;
  	public float vertical;
+    public Vector2 direction;
 
     // Start is called before the first frame update
     void Start()
     {
         this.rigid = GetComponent<Rigidbody2D>();
+        this.direction = new Vector2(0,-1);
     }
 
     // Update is called once per frame
@@ -26,5 +26,9 @@ public class CharacterController : MonoBehaviour
     	vertical = Input.GetAxisRaw("Vertical");
 
     	this.rigid.transform.position += new Vector3(horizontal * speed * Time.deltaTime, vertical * speed * Time.deltaTime);
+        
+        if(new Vector2(horizontal, vertical) != new Vector2(0,0)){
+            this.direction = new Vector2(horizontal, vertical);
+        }
     }
 }
