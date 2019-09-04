@@ -26,8 +26,6 @@ public class Projectile : MonoBehaviour
             return;
         }
         Debug.Log("Collision");
-
-
         Destroy(gameObject);
     }
 }

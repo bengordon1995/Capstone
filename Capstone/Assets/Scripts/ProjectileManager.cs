@@ -29,10 +29,11 @@ public class ProjectileManager : MonoBehaviour
         timeSinceLastProjectile += Time.deltaTime;
         if (timeSinceLastProjectile > reloadTime){
         	if(Input.GetKeyDown("space")){
-        		GameObject newProj = Instantiate(projectilePrefab, player.transform.position + new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")),  new Quaternion());
+                Vector3 playerFacing = player.GetComponent<PlayerController>().direction;
+        		GameObject newProj = Instantiate(projectilePrefab, player.transform.position + playerFacing,  new Quaternion());
                 //limit projectile flight time for performance
                 Destroy(newProj, projectileFlightTime);
-                newProj.GetComponent<Rigidbody2D>().velocity = player.GetComponent<CharacterController>().direction.normalized * projectileSpeed;
+                newProj.GetComponent<Rigidbody2D>().velocity = playerFacing.normalized * projectileSpeed;
         		timeSinceLastProjectile = 0;
         	}
         }
