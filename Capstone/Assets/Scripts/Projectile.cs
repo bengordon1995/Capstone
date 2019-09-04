@@ -18,7 +18,16 @@ public class Projectile : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
-        Debug.Log("collision");
+        //should ignore hitting other player projectiles if they end up overlapping
+        if (collision.gameObject.tag == "projectile")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CircleCollider2D>(), gameObject.GetComponentInParent<CircleCollider2D>());
+            Debug.Log("Pojectile collision with other projectile, ignoring collision");
+            return;
+        }
+        Debug.Log("Collision");
+
+
         Destroy(gameObject);
     }
 }

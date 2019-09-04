@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 539534386}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 0.5
   projectileSize: 1
-  projectileSpeed: 5
+  projectileSpeed: 10
+  projectileFlightTime: 6
   projectilePrefab: {fileID: 3011394977959964173, guid: 35e23ca174d272a42b43352c250dd63b,
     type: 3}
 --- !u!1 &1047931362
