@@ -11,6 +11,9 @@ public class ProjectileManager : MonoBehaviour
     public float projectileFlightTime;
 	public GameObject projectilePrefab;
 
+    public float horizontalShoot;
+    public float verticalShoot;
+    
 	private float timeSinceLastProjectile;
 	private GameObject player;
 
@@ -28,12 +31,14 @@ public class ProjectileManager : MonoBehaviour
         //edits fire rate of player's projectiles
         timeSinceLastProjectile += Time.deltaTime;
         if (timeSinceLastProjectile > reloadTime){
-        	if(Input.GetKeyDown("space")){
-                Vector3 playerFacing = player.GetComponent<PlayerController>().direction;
-        		GameObject newProj = Instantiate(projectilePrefab, player.transform.position + playerFacing,  new Quaternion());
+        	if(Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") ){
+                Vector3 shootVector = new Vector3(Input.GetAxisRaw("HorizontalShoot"), Input.GetAxisRaw("VerticalShoot"), 0f);
+                horizontalShoot = shootVector.x;
+                verticalShoot = shootVector.y;
+        		GameObject newProj = Instantiate(projectilePrefab, player.transform.position + shootVector.normalized, Quaternion.identity);
                 //limit projectile flight time for performance
                 Destroy(newProj, projectileFlightTime);
-                newProj.GetComponent<Rigidbody2D>().velocity = playerFacing.normalized * projectileSpeed;
+                newProj.GetComponent<Rigidbody2D>().velocity = shootVector.normalized * (projectileSpeed + player.GetComponent<PlayerController>().speed);
         		timeSinceLastProjectile = 0;
         	}
         }

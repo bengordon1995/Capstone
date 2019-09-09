@@ -169,10 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 351529534024030038, guid: 44162df1d38febd4a92eb70d041fcb95, type: 3}
-  roomDensity: 0.5
+  roomDensity: 0.37
   roomWidth: 20
   roomHeight: 8
-  maxDepth: 3
+  maxDepth: 6
 --- !u!1 &1741854832
 GameObject:
   m_ObjectHideFlags: 0
