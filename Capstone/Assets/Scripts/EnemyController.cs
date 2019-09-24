@@ -66,6 +66,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void Die(){
+        return;
+    }
+
 
     private bool IsPlayerInRange(float range)
     {
