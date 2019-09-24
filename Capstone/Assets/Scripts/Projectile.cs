@@ -29,7 +29,6 @@ public class Projectile : MonoBehaviour
             Debug.Log("Ignoring collision with player");
             return;
         }
-        Debug.Log("Collision");
         Destroy(gameObject);            
 
     }

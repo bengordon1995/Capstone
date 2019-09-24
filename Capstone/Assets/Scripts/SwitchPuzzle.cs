@@ -16,6 +16,7 @@ public class SwitchPuzzle : MonoBehaviour
 	public List<PuzzleSwitch> switches = new List<PuzzleSwitch>();
 	public GameObject switchPrefab;
 	public float puzzleRadius;
+	public DoorToggle door;
 
     // Start is called before the first frame update
     void Start()
@@ -50,13 +51,13 @@ public class SwitchPuzzle : MonoBehaviour
     }
 
     //checks if all switches are on
-    public bool checkSolved(){
+    public void checkSolved(){
     	foreach (PuzzleSwitch tempSwitch in this.switches){
     		if (tempSwitch.isOn == false){
-    			return false;
+    			return;
     		}
     	}
     	this.isSolved = true;
-    	return true;
+    	door.isRoomComplete = true;
     }
 }
