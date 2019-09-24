@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
 /*Defines behavior for a switch puzzle:
 	The switch puzzle has 5 switches arranged in a circle, each can either be on or off
