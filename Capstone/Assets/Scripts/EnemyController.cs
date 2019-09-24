@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public enum EnemyState
 {
 
@@ -32,11 +31,15 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 randomDir;
 
+    public bool isColliding = false;
+
+    public Collider2D wallCollider;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -67,7 +70,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Die(){
-        return;
+    	return;
     }
 
 
@@ -93,10 +96,15 @@ public class EnemyController : MonoBehaviour
             StartCoroutine(ChooseDirection());
         }
 
+
         transform.position += -transform.right * speed * Time.deltaTime;
         if(IsPlayerInRange(range))
         {
             currState = EnemyState.Follow;
+        }
+        if (isColliding){
+        	isColliding = false;
+        	transform.rotation = Quaternion.Euler(0,0,180) * transform.rotation;
         }
 
     }
@@ -105,5 +113,18 @@ public class EnemyController : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
+
+    void OnCollisionEnter2D(Collision2D collision){
+    	isColliding = true;
+    	StartCoroutine(tempDisableWallCollision());
+    }
+
+    private IEnumerator tempDisableWallCollision(){
+    	Physics2D.IgnoreCollision(GetComponent<Collider2D>(), wallCollider);
+    	yield return new WaitForSeconds(0.1f);
+    	Physics2D.IgnoreCollision(GetComponent<Collider2D>(), wallCollider, false);
+    }
+
+
 
 }
