@@ -33,9 +33,6 @@ public class EnemyController : MonoBehaviour
 
     public bool isColliding = false;
 
-    public Collider2D wallCollider;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +69,7 @@ public class EnemyController : MonoBehaviour
     private void Die(){
     	return;
     }
+
 
     private bool IsPlayerInRange(float range)
     {
@@ -119,6 +117,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private IEnumerator tempDisableWallCollision(){
+        Collider2D wallCollider = GameObject.Find("Walls").GetComponent<Collider2D>();
     	Physics2D.IgnoreCollision(GetComponent<Collider2D>(), wallCollider);
     	yield return new WaitForSeconds(0.1f);
     	Physics2D.IgnoreCollision(GetComponent<Collider2D>(), wallCollider, false);
