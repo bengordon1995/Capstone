@@ -27,7 +27,7 @@ public class PointPathFollower : MonoBehaviour
         timeSinceMove += Time.deltaTime;
         if (timeSinceMove > timeToMove){
             if(nextPathMarkerIndex + 1 == pathMarkers.Length){
-                Destroy(this.gameObject);
+                this.gameObject.SetActive(false);
             }
             else{
                 currentPathMarker = nextPathMarker;

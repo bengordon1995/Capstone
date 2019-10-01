@@ -9,6 +9,7 @@ public class Emitter : MonoBehaviour
 	public Vector3[] path;
 	public float timeSinceEmit;
 	public float timeBetweenEmit;
+	public CompositeEmitter parentEmitter;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +29,26 @@ public class Emitter : MonoBehaviour
     }
 
     void Emit(){
-	    GameObject tempProj = Instantiate(projectilePrefab, this.path[0], this.rotation);
-	    tempProj.GetComponent<PointPathFollower>().pathMarkers = compensatePath();
+    	//check if there is an inactive proj ready to activate
+    	GameObject tempProj = parentEmitter.popInactiveProjectile();
+    	//no inactive objects were found
+    	if (tempProj == null){
+    		tempProj = Instantiate(projectilePrefab, this.path[0], this.rotation);
+	    	tempProj.GetComponent<PointPathFollower>().pathMarkers = compensatePath();
+    	}
+    	//tempProj currently contains an inactive projectile
+    	else{
+    		tempProj.SetActive(true);
+    		tempProj.GetComponent<PointPathFollower>().pathMarkers = compensatePath();
+    		tempProj.transform.position = tempProj.GetComponent<PointPathFollower>().pathMarkers[0];
+    		tempProj.GetComponent<PointPathFollower>().currentPathMarker = tempProj.GetComponent<PointPathFollower>().pathMarkers[0];
+        	tempProj.GetComponent<PointPathFollower>().nextPathMarker = tempProj.GetComponent<PointPathFollower>().pathMarkers[1];
+        	tempProj.GetComponent<PointPathFollower>().nextPathMarkerIndex = 1;
+        	tempProj.GetComponent<PointPathFollower>().timeSinceMove = 0;
+    	}
+	    
+	    this.parentEmitter.pushProjectile(tempProj);
+
     }
 
     Vector3[] compensatePath(){

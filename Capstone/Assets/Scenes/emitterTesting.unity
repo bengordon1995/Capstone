@@ -273,6 +273,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1867404447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 26848206303332767, guid: 0e50059fc34ed2847825c7a87677e25b,
+    type: 3}
+  m_PrefabInstance: {fileID: 26848206773129556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1867404450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867404447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c8a64c24b70974bb3287378b475bfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectiles: []
+  maxProjectiles: 100
 --- !u!1001 &26848206773129556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355,6 +375,11 @@ PrefabInstance:
       propertyPath: timeBetweenEmit
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1470829072619070648, guid: 0e50059fc34ed2847825c7a87677e25b,
+        type: 3}
+      propertyPath: parentEmitter
+      value: 
+      objectReference: {fileID: 1867404450}
     - target: {fileID: 1470829072619070630, guid: 0e50059fc34ed2847825c7a87677e25b,
         type: 3}
       propertyPath: path.Array.data[0].y
@@ -405,6 +430,11 @@ PrefabInstance:
       propertyPath: timeBetweenEmit
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1470829072821431050, guid: 0e50059fc34ed2847825c7a87677e25b,
+        type: 3}
+      propertyPath: parentEmitter
+      value: 
+      objectReference: {fileID: 1867404450}
     - target: {fileID: 1470829072821431060, guid: 0e50059fc34ed2847825c7a87677e25b,
         type: 3}
       propertyPath: path.Array.data[0].y
@@ -455,6 +485,11 @@ PrefabInstance:
       propertyPath: timeBetweenEmit
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1470829073024089328, guid: 0e50059fc34ed2847825c7a87677e25b,
+        type: 3}
+      propertyPath: parentEmitter
+      value: 
+      objectReference: {fileID: 1867404450}
     - target: {fileID: 1470829073024089326, guid: 0e50059fc34ed2847825c7a87677e25b,
         type: 3}
       propertyPath: path.Array.data[0].y
@@ -505,6 +540,11 @@ PrefabInstance:
       propertyPath: timeBetweenEmit
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1470829073689074097, guid: 0e50059fc34ed2847825c7a87677e25b,
+        type: 3}
+      propertyPath: parentEmitter
+      value: 
+      objectReference: {fileID: 1867404450}
     - target: {fileID: 1470829073689074095, guid: 0e50059fc34ed2847825c7a87677e25b,
         type: 3}
       propertyPath: path.Array.data[0].y
