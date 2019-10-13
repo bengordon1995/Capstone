@@ -5,14 +5,16 @@ using UnityEngine;
 public class RoomTrigger : MonoBehaviour
 {
 
-	public GameObject room;
 	public GameObject nextRoom;
-	private GameObject player;
+    public bool locked;
+    public Sprite unlockedSprite;
+    public Sprite lockedSprite;
+    public GameObject[] doors;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+
     }
 
     // Update is called once per frame
@@ -22,14 +24,23 @@ public class RoomTrigger : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
-    	if (collision.gameObject == player){
-    		roomSwitch();
+    	if (collision.gameObject == GameState.Instance.player){
+            if(!locked){
+    		  roomSwitch();
+            }
     	}
     }
 
+    public void unlock(){
+        this.locked = false;
+        foreach (GameObject door in this.doors){
+            door.GetComponent<SpriteRenderer>().sprite = unlockedSprite;
+        }
+    }
+
     void roomSwitch(){
-    	Destroy(room);
-    	Instantiate(nextRoom);
-    	player.transform.position = new Vector3(-8.5f,0.5f,0);
+        GameState.Instance.currentRoomTrigger = Instantiate(nextRoom).GetComponent<RoomTrigger>();
+        Destroy(this);
+    	GameState.Instance.player.transform.position = new Vector3(-8.5f,0.5f,0);
     }
 }

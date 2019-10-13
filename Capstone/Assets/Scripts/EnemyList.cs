@@ -15,7 +15,7 @@ public class EnemyList : MonoBehaviour
     {
     	//if no enemies left in the room, room is complete
         if(transform.GetChild(0) == null){
-        	GameObject.Find("Doors").GetComponent<DoorToggle>().isRoomComplete = true;
+        	GameState.Instance.currentRoomTrigger.unlock();
         }
     }
 }

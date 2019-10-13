@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
             Debug.Log("Projectile collision with other projectile, ignoring collision");
             return;
         }
-        else if (collision.gameObject.CompareTag("player")){
+        else if (collision.gameObject == GameState.Instance.player){
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CircleCollider2D>(), gameObject.GetComponentInParent<CircleCollider2D>());
             Debug.Log("Ignoring collision with player");
             return;
