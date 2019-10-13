@@ -39,9 +39,10 @@ public class Room : MonoBehaviour
         }
     }
 
-    void roomSwitch(){
+    public void roomSwitch(){
+        Debug.Log("room switched");
         GameState.Instance.currentRoom = Instantiate(nextRoom).GetComponent<Room>();
-        Destroy(this);
+        Destroy(this.gameObject);
     	GameState.Instance.player.transform.position = new Vector3(-8.5f,0.5f,0);
     }
 }
