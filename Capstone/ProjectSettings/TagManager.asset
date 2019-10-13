@@ -8,6 +8,7 @@ TagManager:
   - player
   - projectile
   - room
+  - door
   layers:
   - Default
   - TransparentFX

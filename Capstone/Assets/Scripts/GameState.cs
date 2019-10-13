@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour {
     private static GameState _instance;
     public static GameState Instance { get { return _instance; } }
 
-    public RoomTrigger currentRoomTrigger;
+    public Room currentRoom;
     public GameObject player;
 
     private void Awake()
@@ -25,7 +25,7 @@ public class GameState : MonoBehaviour {
     }
 
     void Start(){
-        _instance.currentRoomTrigger = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<RoomTrigger>();
+        _instance.currentRoom = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         _instance.player = GameObject.Find("Player");
     }
 

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2517400005606945984}
   - component: {fileID: 3074639508637495610}
+  - component: {fileID: 141560198362413756}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,6 +80,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &141560198362413756
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509433394438396329}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.25, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.984375, y: 0.984375}
+    newSize: {x: 0.484375, y: 0.484375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2557708681402802085
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2557708682859784106}
   - component: {fileID: 2557708682859784107}
+  - component: {fileID: 2767897462007084017}
   m_Layer: 0
   m_Name: Room
   m_TagString: room
@@ -763,6 +791,23 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &2767897462007084017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557708682859784108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c1a5e9e80662547aae24edf96e9bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextRoom: {fileID: 0}
+  locked: 0
+  unlockedSprite: {fileID: 21300000, guid: 2452214b5adfe27479bc02e060233c85, type: 3}
+  lockedSprite: {fileID: 21300012, guid: 2452214b5adfe27479bc02e060233c85, type: 3}
+  doors: []
 --- !u!1 &5315982319452350481
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,9 +850,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6386896593034614575}
   - component: {fileID: 6345752352334024323}
+  - component: {fileID: 389316770644286723}
   m_Layer: 0
   m_Name: Enter
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -874,3 +920,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &389316770644286723
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6671539921655550109}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.25, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.984375, y: 0.984375}
+    newSize: {x: 0.484375, y: 0.484375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1}
+  m_EdgeRadius: 0

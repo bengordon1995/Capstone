@@ -55,6 +55,6 @@ public class SwitchPuzzle : MonoBehaviour
     		}
     	}
     	this.isSolved = true;
-        GameState.Instance.currentRoomTrigger.unlock();
+        GameState.Instance.currentRoom.unlock();
     }
 }
