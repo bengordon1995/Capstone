@@ -330,6 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a29ca9f9a7c7b489a53e85acf58e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 0
+  doors: []
   startCutscenePosition: {x: 0, y: -7, z: 0}
   endCutscenePosition: {x: 0, y: -1, z: 0}
   cutsceneTime: 5
@@ -612,6 +614,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 509433394438396329, guid: 7dcb417065a77cc40b305d79964f641a,
+        type: 3}
+      propertyPath: m_Name
+      value: Hall_6
+      objectReference: {fileID: 0}
     - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -716,6 +723,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[38].first.x
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671539921655550109, guid: 7dcb417065a77cc40b305d79964f641a,
+        type: 3}
+      propertyPath: m_Name
+      value: Hall_5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dcb417065a77cc40b305d79964f641a, type: 3}

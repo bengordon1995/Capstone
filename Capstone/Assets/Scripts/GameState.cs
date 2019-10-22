@@ -2,18 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-/*
-	Used for storing global variables around
-*/
-
 public class GameState : MonoBehaviour {
     private static GameState _instance;
     public static GameState Instance { get { return _instance; } }
 
     public GameObject player;
-    public Room currentRoom;
-
 
     private void Awake()
     {
@@ -22,11 +15,12 @@ public class GameState : MonoBehaviour {
             Destroy(this.gameObject);
         } else {
             _instance = this;
+            _instance.player = GameObject.Find("Player");
         }
     }
 
     void Start(){
-        _instance.player = GameObject.Find("Player");
+        
     }
 
 }

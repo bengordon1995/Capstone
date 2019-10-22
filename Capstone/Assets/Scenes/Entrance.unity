@@ -141,12 +141,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ddb7b7f2b5eb94f96f90e9d09bfeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockedSprite: {fileID: 21300000, guid: 2452214b5adfe27479bc02e060233c85, type: 3}
+  lockedSprite: {fileID: 21300012, guid: 2452214b5adfe27479bc02e060233c85, type: 3}
   currentRoom: {fileID: 0}
   nextRoom: {fileID: 0}
   entrance: {fileID: 0}
-  additionalRoomChance: 0.75
+  additionalRoomChance: 0.5
   roomPrefabs:
-  - {fileID: 2557708682859784108, guid: 7dcb417065a77cc40b305d79964f641a, type: 3}
+  - {fileID: 3787858905051976685, guid: 303fe07c3d5b2b145b6fc903bcc2990e, type: 3}
   - {fileID: 3177295265564438072, guid: 4e7aa67c9222a764f9ca46f134651741, type: 3}
 --- !u!4 &54223066
 Transform:
@@ -343,7 +345,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  currentRoom: {fileID: 0}
 --- !u!4 &1625336936
 Transform:
   m_ObjectHideFlags: 0
@@ -446,5 +447,6 @@ PrefabInstance:
       propertyPath: cutsceneTime
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4316361926600369889, guid: 161227ad8323abe40ad9d5d44780d6a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 161227ad8323abe40ad9d5d44780d6a2, type: 3}

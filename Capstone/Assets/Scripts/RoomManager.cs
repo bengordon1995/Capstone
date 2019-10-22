@@ -11,6 +11,9 @@ public class RoomManager : MonoBehaviour {
     private static RoomManager _instance;
     public static RoomManager Instance { get { return _instance; } }
 
+    public Sprite unlockedSprite;
+    public Sprite lockedSprite;
+
     public GameObject currentRoom;
     public GameObject nextRoom;
     public GameObject entrance;
@@ -38,8 +41,15 @@ public class RoomManager : MonoBehaviour {
     	_instance.currentRoom.SetActive(false);
     	if (Random.Range(0.0f,1.0f) < additionalRoomChance){
     		_instance.nextRoom = Instantiate(roomPrefabs[Random.Range(0,this.roomPrefabs.Count)]);
+            GameState.Instance.player.transform.position = new Vector3(-5f,0f,0f);
         }
-        else _instance.nextRoom = _instance.entrance;
+        else {
+            _instance.nextRoom = _instance.entrance;
+            _instance.entrance.SetActive(true);
+            GameState.Instance.player.transform.position = new Vector3(0f,-3f,0f);
+        }
+        
         _instance.currentRoom = _instance.nextRoom;
+
     }
 }
