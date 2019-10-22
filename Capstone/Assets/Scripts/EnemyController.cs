@@ -94,7 +94,7 @@ public class EnemyController : MonoBehaviour
         }
 
 
-        transform.position += -transform.right * speed * Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = transform.forward*speed;
         if(IsPlayerInRange(range))
         {
             currState = EnemyState.Follow;
@@ -108,7 +108,7 @@ public class EnemyController : MonoBehaviour
 
     void Follow()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        GetComponent<Rigidbody2D>().velocity = (player.transform.position - transform.position).normalized*speed;
     }
 
     void OnCollisionEnter2D(Collision2D collision){
