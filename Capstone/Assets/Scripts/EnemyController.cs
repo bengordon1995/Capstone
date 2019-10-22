@@ -112,6 +112,9 @@ public class EnemyController : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
+    	if(collision.gameObject.tag == "projectile"){
+    		Destroy(this.gameObject);
+    	}
     	isColliding = true;
     	StartCoroutine(tempDisableWallCollision());
     }

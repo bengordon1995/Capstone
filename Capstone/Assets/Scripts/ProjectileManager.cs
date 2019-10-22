@@ -15,13 +15,11 @@ public class ProjectileManager : MonoBehaviour
     public float verticalShoot;
     
 	private float timeSinceLastProjectile;
-	private GameObject player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-    	player = GameObject.Find("Player");
      	timeSinceLastProjectile = 0;   
     }
 
@@ -35,10 +33,10 @@ public class ProjectileManager : MonoBehaviour
                 Vector3 shootVector = new Vector3(Input.GetAxisRaw("HorizontalShoot"), Input.GetAxisRaw("VerticalShoot"), 0f);
                 horizontalShoot = shootVector.x;
                 verticalShoot = shootVector.y;
-        		GameObject newProj = Instantiate(projectilePrefab, player.transform.position + shootVector.normalized, Quaternion.identity);
+        		GameObject newProj = Instantiate(projectilePrefab, GameState.Instance.player.transform.position + shootVector.normalized, Quaternion.identity);
                 //limit projectile flight time for performance
                 Destroy(newProj, projectileFlightTime);
-                newProj.GetComponent<Rigidbody2D>().velocity = shootVector.normalized * (projectileSpeed + player.GetComponent<PlayerController>().speed);
+                newProj.GetComponent<Rigidbody2D>().velocity = shootVector.normalized * (projectileSpeed + GameState.Instance.player.GetComponent<PlayerController>().speed);
         		timeSinceLastProjectile = 0;
         	}
         }

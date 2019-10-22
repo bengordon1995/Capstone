@@ -10,12 +10,10 @@ using UnityEngine;
 
 public class SwitchPuzzle : MonoBehaviour
 {
-
 	public bool isSolved;
 	public List<PuzzleSwitch> switches = new List<PuzzleSwitch>();
 	public GameObject switchPrefab;
 	public float puzzleRadius;
-	public DoorToggle door;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +55,6 @@ public class SwitchPuzzle : MonoBehaviour
     		}
     	}
     	this.isSolved = true;
-    	door.isRoomComplete = true;
+        RoomManager.Instance.currentRoom.GetComponent<Room>().unlock();
     }
 }

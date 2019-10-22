@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b8c1a5e9e80662547aae24edf96e9bb9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - nextRoom: {instanceID: 0}
+  - unlockedSprite: {fileID: 21300000, guid: 2452214b5adfe27479bc02e060233c85, type: 3}
+  - lockedSprite: {fileID: 21300012, guid: 2452214b5adfe27479bc02e060233c85, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
