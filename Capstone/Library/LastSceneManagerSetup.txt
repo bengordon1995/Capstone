@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Entrance.unity
+=======
+- path: Assets/Scenes/PayloadTesting.unity
+>>>>>>> PayloadTestingV2
   isLoaded: 1
   isActive: 1
