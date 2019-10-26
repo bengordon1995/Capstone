@@ -128,7 +128,7 @@ public class EnemyController : MonoBehaviour
 
     void OntriggerEnter2D(Collider2D col)
     {
-        DamageableHealth.health -= 20f;
+        this.GetComponent<DamageableHealth>().health -= 20f;
     }
 
 }

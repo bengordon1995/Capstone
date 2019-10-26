@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class DamageableHealth : MonoBehaviour
 {
 
-    Image healthBar;
-    float maxHealth = 100f;
-    public static float health;
+    public Image healthBar;
+    public float maxHealth = 100f;
+    public float health;
 
     void Start()
     {
         healthBar = GetComponent<Image>();
-        health = maxHealth;
+        this.health = this.maxHealth;
     }
 
     void Update ()
