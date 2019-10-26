@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Madness : MonoBehaviour
 {
 
-	public int maxMadness;
-	public int currentMadness;
+	public float maxMadness;
+	public float currentMadness;
 	public Slider madnessBar;
 
     // Start is called before the first frame update
