@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
  	public float horizontal;
  	public float vertical;
     public Vector2 direction;
+    public float maxSpeed;
+    public float dragCoefficient;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +27,19 @@ public class PlayerController : MonoBehaviour
     	horizontal = Input.GetAxisRaw("Horizontal");
     	vertical = Input.GetAxisRaw("Vertical");
 
-    	this.rigid.transform.position += new Vector3(horizontal * speed * Time.deltaTime, vertical * speed * Time.deltaTime);
-        
-        if(new Vector2(horizontal, vertical) != new Vector2(0,0)){
-            this.direction = new Vector2(horizontal, vertical);
-        }
+    	this.rigid.velocity += new Vector2(horizontal,vertical).normalized * speed;
+
+    	if (new Vector2(horizontal,vertical).sqrMagnitude < 1){
+    		this.rigid.velocity = this.rigid.velocity * dragCoefficient;
+    		if (this.rigid.velocity.sqrMagnitude < 0.05){
+    			this.rigid.velocity = Vector2.zero;
+    		}
+    	}
+
+    	if (this.rigid.velocity.sqrMagnitude > maxSpeed * maxSpeed){
+    		this.rigid.velocity = this.rigid.velocity.normalized * maxSpeed;
+    	}
+
+
     }
 }

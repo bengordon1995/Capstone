@@ -13,6 +13,7 @@ public class ProjectileManager : MonoBehaviour
 
     public float horizontalShoot;
     public float verticalShoot;
+    public Vector3 shootVector;
     
 	private float timeSinceLastProjectile;
 
@@ -30,7 +31,10 @@ public class ProjectileManager : MonoBehaviour
         timeSinceLastProjectile += Time.deltaTime;
         if (timeSinceLastProjectile > reloadTime){
         	if(Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") ){
-                Vector3 shootVector = new Vector3(Input.GetAxisRaw("HorizontalShoot"), Input.GetAxisRaw("VerticalShoot"), 0f);
+                Vector3 tempShootVector = new Vector3(Input.GetAxisRaw("HorizontalShoot"), Input.GetAxisRaw("VerticalShoot"), 0f);
+                if (tempShootVector != Vector3.zero){
+                    shootVector = tempShootVector;
+                }
                 horizontalShoot = shootVector.x;
                 verticalShoot = shootVector.y;
         		GameObject newProj = Instantiate(projectilePrefab, GameState.Instance.player.transform.position + shootVector.normalized, Quaternion.identity);
