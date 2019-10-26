@@ -104,6 +104,8 @@ MonoBehaviour:
     type: 3}
   healthBar: {fileID: 0}
   healthBarSlider: {fileID: 0}
+  damageableHealth: {fileID: 0}
+  knockbackScaling: 1
 --- !u!58 &5380241187574891237
 CircleCollider2D:
   m_ObjectHideFlags: 0

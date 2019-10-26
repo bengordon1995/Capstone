@@ -386,12 +386,12 @@ PrefabInstance:
     - target: {fileID: 8675997078373689674, guid: 964695b70f3267044996a341d97e7cd9,
         type: 3}
       propertyPath: maxSpeed
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8675997078373689674, guid: 964695b70f3267044996a341d97e7cd9,
         type: 3}
       propertyPath: dragCoefficient
-      value: 0.5
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 964695b70f3267044996a341d97e7cd9, type: 3}

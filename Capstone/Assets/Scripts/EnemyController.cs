@@ -44,6 +44,8 @@ public class EnemyController : MonoBehaviour
 
     public DamageableHealth damageableHealth;
 
+    public float knockbackScaling;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,7 @@ public class EnemyController : MonoBehaviour
         this.healthBar.GetComponent<HealthBarFollower>().followObject = this.gameObject;
         this.healthBar.GetComponent<HealthBarFollower>().offset = new Vector3(0f,-0.5f,0f);
         this.damageableHealth = this.GetComponent<DamageableHealth>();
+
     }
 
     // Update is called once per frame
@@ -138,8 +141,9 @@ public class EnemyController : MonoBehaviour
     	}
     	if(collision.gameObject.tag == "Player"){
     		GameState.Instance.player.GetComponent<DamageableHealth>().currentHealth -= this.damage;
-    		Destroy(this.gameObject);
-    		Destroy(this.healthBar);
+    		Vector2 knockbackVector = (GameState.Instance.player.transform.position - this.transform.position).normalized * (this.damage / knockbackScaling);
+    		GameState.Instance.player.GetComponent<Rigidbody2D>().velocity += knockbackVector;
+    		this.GetComponent<Rigidbody2D>().velocity -= knockbackVector;
     	}
     	isColliding = true;
     	StartCoroutine(tempDisableWallCollision());
