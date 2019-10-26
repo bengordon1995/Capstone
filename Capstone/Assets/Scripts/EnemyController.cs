@@ -33,10 +33,12 @@ public class EnemyController : MonoBehaviour
 
     public bool isColliding = false;
 
+    public float damage;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameState.Instance.player;
     }
 
     // Update is called once per frame
@@ -115,6 +117,10 @@ public class EnemyController : MonoBehaviour
     	if(collision.gameObject.tag == "projectile"){
     		Destroy(this.gameObject);
     	}
+    	if(collision.gameObject.tag == "Player"){
+    		GameState.Instance.player.GetComponent<DamageableHealth>().currentHealth -= this.damage;
+    		Destroy(this.gameObject);
+    	}
     	isColliding = true;
     	StartCoroutine(tempDisableWallCollision());
     }
@@ -125,10 +131,4 @@ public class EnemyController : MonoBehaviour
     	yield return new WaitForSeconds(0.1f);
     	Physics2D.IgnoreCollision(GetComponent<Collider2D>(), wallCollider, false);
     }
-
-    void OntriggerEnter2D(Collider2D col)
-    {
-        this.GetComponent<DamageableHealth>().health -= 20f;
-    }
-
 }

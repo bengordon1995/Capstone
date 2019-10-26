@@ -8,15 +8,15 @@ public class DamageableHealth : MonoBehaviour
 
     public Slider healthBar;
     public float maxHealth = 100f;
-    public float health;
+    public float currentHealth;
 
     void Start()
     {
-        this.health = this.maxHealth;
+        this.currentHealth = this.maxHealth;
     }
 
     void Update ()
     {
-        healthBar.value = health / maxHealth;
+        healthBar.value = currentHealth / maxHealth;
     }
 }
