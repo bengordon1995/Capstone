@@ -126,6 +126,9 @@ public class EnemyController : MonoBehaviour
     	Physics2D.IgnoreCollision(GetComponent<Collider2D>(), wallCollider, false);
     }
 
-
+    void OntriggerEnter2D(Collider2D col)
+    {
+        this.GetComponent<DamageableHealth>().health -= 20f;
+    }
 
 }
