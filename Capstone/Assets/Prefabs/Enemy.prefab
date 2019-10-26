@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5380241187574891236}
   - component: {fileID: 5380241187574891237}
   - component: {fileID: 5380241187574891242}
+  - component: {fileID: 7653514009095723529}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -99,6 +100,10 @@ MonoBehaviour:
   speed: 2
   isColliding: 0
   damage: 25
+  healthBarPrefab: {fileID: 6645464533907421382, guid: cf04a06671886b3469b02b5ec87f97b1,
+    type: 3}
+  healthBar: {fileID: 0}
+  healthBarSlider: {fileID: 0}
 --- !u!58 &5380241187574891237
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +141,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7653514009095723529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380241187574891243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78c09861ad82d244a488e089c99e56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 100

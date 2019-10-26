@@ -146,7 +146,7 @@ MonoBehaviour:
   currentRoom: {fileID: 0}
   nextRoom: {fileID: 0}
   entrance: {fileID: 0}
-  additionalRoomChance: 0.5
+  additionalRoomChance: 1
   roomPrefabs:
   - {fileID: 3787858905051976685, guid: 303fe07c3d5b2b145b6fc903bcc2990e, type: 3}
 --- !u!4 &54223066
