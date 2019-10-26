@@ -11,10 +11,13 @@ public class Payload : MonoBehaviour
     public float payloadSpeed;
     public float payloadTargetProximity;
     public float playerPayloadProximity;
+    int status;
     // Start is called before the first frame update
     void Start()
     {
+        status = 0;//just means locked doors
         currentTarget = 0;
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -22,6 +25,11 @@ public class Payload : MonoBehaviour
     {
         if (currentTarget == -1 || Vector3.Distance(player.transform.position, payload.transform.position) > playerPayloadProximity)//no objects to go to or player not close enough
         {
+            if (status == 0 && currentTarget == -1)
+            {
+                status = 1;
+                RoomManager.Instance.currentRoom.GetComponent<Room>().unlock();
+            }
             return;
         }
         if (Vector3.Distance(payload.transform.position, checkpoints[currentTarget].transform.position)<payloadTargetProximity)//within x units of each other

@@ -149,6 +149,9 @@ MonoBehaviour:
   additionalRoomChance: 0.5
   roomPrefabs:
   - {fileID: 3787858905051976685, guid: 303fe07c3d5b2b145b6fc903bcc2990e, type: 3}
+  - {fileID: 5435976706542163339, guid: 7f1e07535c0779741851d82e98c11d4e, type: 3}
+  - {fileID: 4214547410019393625, guid: 39ee23cc95a1d114690f695c246cfa49, type: 3}
+  - {fileID: 869329537766558006, guid: 356647a6985d1dd49966f6c61a5fd5a7, type: 3}
 --- !u!4 &54223066
 Transform:
   m_ObjectHideFlags: 0
