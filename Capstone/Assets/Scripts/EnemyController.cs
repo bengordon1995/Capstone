@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum EnemyState
 {
@@ -35,10 +36,24 @@ public class EnemyController : MonoBehaviour
 
     public float damage;
 
+    public GameObject healthBarPrefab;
+
+    public GameObject healthBar;
+
+    public Slider healthBarSlider;
+
+    public DamageableHealth damageableHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameState.Instance.player;
+        this.healthBar = Instantiate(healthBarPrefab);
+        this.healthBar.transform.parent = GameObject.Find("Canvas").transform;
+        this.GetComponent<DamageableHealth>().healthBar = this.healthBar.GetComponent<Slider>();
+        this.healthBar.GetComponent<HealthBarFollower>().followObject = this.gameObject;
+        this.healthBar.GetComponent<HealthBarFollower>().offset = new Vector3(0f,-0.5f,0f);
+        this.damageableHealth = this.GetComponent<DamageableHealth>();
     }
 
     // Update is called once per frame
@@ -115,11 +130,16 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision){
     	if(collision.gameObject.tag == "projectile"){
-    		Destroy(this.gameObject);
+    		this.damageableHealth.currentHealth -= collision.gameObject.GetComponent<Projectile>().damage;
+    		if(this.damageableHealth.currentHealth <= 0){
+    			Destroy(this.gameObject);
+    			Destroy(this.healthBar);
+    		}
     	}
     	if(collision.gameObject.tag == "Player"){
     		GameState.Instance.player.GetComponent<DamageableHealth>().currentHealth -= this.damage;
     		Destroy(this.gameObject);
+    		Destroy(this.healthBar);
     	}
     	isColliding = true;
     	StartCoroutine(tempDisableWallCollision());
