@@ -19,6 +19,7 @@ public class RoomManager : MonoBehaviour {
     public GameObject entrance;
     public float additionalRoomChance;
     public List<GameObject> roomPrefabs;
+    public GameObject bossRoom;
 
 
     private void Awake()
@@ -54,6 +55,13 @@ public class RoomManager : MonoBehaviour {
         }
         
         _instance.currentRoom = _instance.nextRoom;
+    }
 
+    public void bossRoomTransition(){
+		_instance.currentRoom.SetActive(false);
+    	_instance.nextRoom = Instantiate(bossRoom);
+    	GameState.Instance.player.transform.position = new Vector3(-3f,-0f,0f);
+    	_instance.currentRoom = _instance.nextRoom;
+    	Camera.main.transform.parent = GameState.Instance.player.transform;
     }
 }
