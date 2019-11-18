@@ -10,10 +10,19 @@ public class Door : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision){
     	if (collision.gameObject == GameState.Instance.player){
             if(!locked){
-            	if(RoomManager.Instance.currentRoom == RoomManager.Instance.entrance){
+
+                if( this.gameObject.name == "Boss"){
+                    Debug.Log("collision with boss door");
+                    RoomManager.Instance.bossRoomTransition();
+                }
+
+            	else if(RoomManager.Instance.currentRoom == RoomManager.Instance.entrance){
             		this.lockDoor();
+                    RoomManager.Instance.roomTransition();
             	}
-    			RoomManager.Instance.roomTransition();
+    			else{
+                    RoomManager.Instance.roomTransition();
+                }
             }
     	}
     }

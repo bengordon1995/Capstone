@@ -148,7 +148,10 @@ MonoBehaviour:
   entrance: {fileID: 0}
   additionalRoomChance: 1
   roomPrefabs:
-  - {fileID: 7688920495358772328, guid: 08c3cef6165548f40aaf51881e21b9f5, type: 3}
+  - {fileID: 3787858905051976685, guid: 303fe07c3d5b2b145b6fc903bcc2990e, type: 3}
+  - {fileID: 3177295265564438072, guid: 4e7aa67c9222a764f9ca46f134651741, type: 3}
+  bossRoom: {fileID: 7688920495358772328, guid: 08c3cef6165548f40aaf51881e21b9f5,
+    type: 3}
 --- !u!4 &54223066
 Transform:
   m_ObjectHideFlags: 0
