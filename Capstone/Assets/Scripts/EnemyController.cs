@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public enum EnemyState
 {
 
-    Wander,
+    AIM,
 
-    Follow,
+    CHARGE,
 
-    Die
+    RECOVER
 
 };
 
@@ -18,33 +18,25 @@ public class EnemyController : MonoBehaviour
 {
 
     GameObject player;
-
-
-    public EnemyState currState = EnemyState.Wander;
-
-    public float range;
-
+    public EnemyState currState = EnemyState.AIM;
     public float speed;
-
-    private bool chooseDir = false;
-
-    private bool dead = false;
-
     private Vector3 randomDir;
-
     public bool isColliding = false;
-
     public float damage;
-
     public GameObject healthBarPrefab;
-
     public GameObject healthBar;
-
     public Slider healthBarSlider;
-
     public DamageableHealth damageableHealth;
-
     public float knockbackScaling;
+
+
+    public float aimTime;
+    public float chargeTime;
+    public float recoverTime;
+
+    public float elapsedStateTime;
+    public float lastStateTime;
+    public Vector3 chargeDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -62,69 +54,51 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(currState)
-        {
-            case(EnemyState.Wander):
-                Wander();
-            break;
-            case(EnemyState.Follow):
-                Follow();
-            break;
-            case(EnemyState.Die):
-                Die();
-
-            break;
-        }
-
-        if(IsPlayerInRange(range) && currState != EnemyState.Die)
-        {
-            currState = EnemyState.Follow;
-        }
-        else if(!IsPlayerInRange(range) && currState != EnemyState.Die)
-        {
-            currState = EnemyState.Wander;
-        }
+    	elapsedStateTime += Time.deltaTime;
+    	if (currState == EnemyState.AIM){
+    		if (elapsedStateTime > aimTime){
+    			currState = EnemyState.CHARGE;
+    			chargeDirection = (GameState.Instance.player.transform.position - this.transform.position).normalized;
+    			elapsedStateTime = 0f;
+    		}
+    		else{
+    			Aim();
+    		}
+    	}
+		else if (currState == EnemyState.CHARGE){
+    		if (elapsedStateTime > chargeTime){
+    			this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+    			currState = EnemyState.RECOVER;
+    			elapsedStateTime = 0f;
+    		}
+    		else{
+    			Charge();
+    		}
+    	}
+    	else if (currState == EnemyState.RECOVER){
+    		if (elapsedStateTime > recoverTime){
+    			currState = EnemyState.AIM;
+    			elapsedStateTime = 0f;
+    		}
+    		else{
+    			Aim();
+    		}
+    	}
     }
 
-    private void Die(){
+    public void Aim(){
+    	this.GetComponent<Rigidbody2D>().velocity = (GameState.Instance.player.transform.position - this.transform.position).normalized * speed / 4;
+		transform.right = GameState.Instance.player.transform.position - transform.position;    
+	}
+
+    public void Charge(){
+    	this.GetComponent<Rigidbody2D>().velocity = chargeDirection * speed;
+    }
+
+    public void Recover(){
     	return;
     }
-
-
-    private bool IsPlayerInRange(float range)
-    {
-        return Vector3.Distance(transform.position, player.transform.position) <= range;
-    }
-
-    private IEnumerator ChooseDirection()
-    {
-        chooseDir = true;
-        yield return new WaitForSeconds(Random.Range(2f, 8f));
-        randomDir = new Vector3(0, 0, Random.Range(0, 360));
-        Quaternion nextRotation = Quaternion.Euler(randomDir);
-        transform.rotation = Quaternion.Lerp(transform.rotation, nextRotation, Random.Range(0.5f, 2.5f));
-        chooseDir = false;
-    }
-
-    void Wander()
-    {
-        if(!chooseDir)
-        {
-            StartCoroutine(ChooseDirection());
-        }
-
-
-        GetComponent<Rigidbody2D>().velocity = transform.forward*speed;
-        if(IsPlayerInRange(range))
-        {
-            currState = EnemyState.Follow;
-        }
-        if (isColliding){
-        	isColliding = false;
-        	transform.rotation = Quaternion.Euler(0,0,180) * transform.rotation;
-        }
-
-    }
+   
 
     void Follow()
     {
