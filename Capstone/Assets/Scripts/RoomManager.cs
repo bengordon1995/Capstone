@@ -39,6 +39,10 @@ public class RoomManager : MonoBehaviour {
 
     public void roomTransition(){
     	_instance.currentRoom.SetActive(false);
+    	GameObject[] projectiles = GameObject.FindGameObjectsWithTag("projectile");
+    	foreach(GameObject p in projectiles){
+    		Destroy(p);
+    	}
     	if (Random.Range(0.0f,1.0f) < additionalRoomChance){
     		_instance.nextRoom = Instantiate(roomPrefabs[Random.Range(0,this.roomPrefabs.Count)]);
             GameState.Instance.player.transform.position = new Vector3(-5f,0f,0f);
