@@ -16,6 +16,7 @@ public class EnemyList : MonoBehaviour
     	//if no enemies left in the room, room is complete
         if(transform.childCount == 0){
         	RoomManager.Instance.currentRoom.GetComponent<Room>().unlock();
+            this.gameObject.SetActive(false);
         }
     }
 }

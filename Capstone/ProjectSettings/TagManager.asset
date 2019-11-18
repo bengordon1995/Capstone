@@ -10,6 +10,7 @@ TagManager:
   - room
   - door
   - enemy
+  - reward
   layers:
   - Default
   - TransparentFX
