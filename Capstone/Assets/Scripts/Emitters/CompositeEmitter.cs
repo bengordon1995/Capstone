@@ -16,16 +16,6 @@ public class CompositeEmitter : MonoBehaviour
         lastFramePosition = this.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Vector3 offset = this.transform.position - lastFramePosition;
-        // lastFramePosition = this.transform.position;
-        // foreach (GameObject proj in projectiles){
-        //     proj.GetComponent<PointPathFollower>().compOffset(offset);
-        // }
-    }
-
     public GameObject popInactiveProjectile(){
     	foreach (GameObject proj in projectiles){
     		if (! proj.activeSelf){

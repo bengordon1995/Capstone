@@ -62,5 +62,6 @@ public class RoomManager : MonoBehaviour {
     	_instance.nextRoom = Instantiate(bossRoom);
     	GameState.Instance.player.transform.position = new Vector3(-3f,-0f,0f);
     	_instance.currentRoom = _instance.nextRoom;
+    	Camera.main.transform.parent = GameState.Instance.player.transform;
     }
 }
