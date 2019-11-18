@@ -19,10 +19,7 @@ public class EnemyController : MonoBehaviour
 
     GameObject player;
     public EnemyState currState = EnemyState.AIM;
-    public float range;
     public float speed;
-    private bool chooseDir = false;
-    private bool dead = false;
     private Vector3 randomDir;
     public bool isColliding = false;
     public float damage;
@@ -90,6 +87,7 @@ public class EnemyController : MonoBehaviour
     }
 
     public void Aim(){
+    	this.GetComponent<Rigidbody2D>().velocity = (GameState.Instance.player.transform.position - this.transform.position).normalized * speed / 4;
 		transform.right = GameState.Instance.player.transform.position - transform.position;    
 	}
 
