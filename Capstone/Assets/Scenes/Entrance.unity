@@ -148,7 +148,7 @@ MonoBehaviour:
   entrance: {fileID: 0}
   additionalRoomChance: 1
   roomPrefabs:
-  - {fileID: 3787858905051976685, guid: 303fe07c3d5b2b145b6fc903bcc2990e, type: 3}
+  - {fileID: 7688920495358772328, guid: 08c3cef6165548f40aaf51881e21b9f5, type: 3}
 --- !u!4 &54223066
 Transform:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &682813827 stripped
 RectTransform:
@@ -598,7 +598,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1613032739
 GameObject:
@@ -939,7 +939,7 @@ PrefabInstance:
     - target: {fileID: 4535562571324863162, guid: 161227ad8323abe40ad9d5d44780d6a2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4535562571324863162, guid: 161227ad8323abe40ad9d5d44780d6a2,
         type: 3}
@@ -1030,7 +1030,7 @@ PrefabInstance:
     - target: {fileID: 5256243673050150649, guid: 1c91700810a9de248b243c8d4625c150,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5256243673050150649, guid: 1c91700810a9de248b243c8d4625c150,
         type: 3}
