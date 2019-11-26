@@ -31,10 +31,11 @@ public class Projectile : MonoBehaviour
             return;
         }
         else if (collision.gameObject.CompareTag("no_collide")){
-            Debug.Log("boss shielding collision");
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CircleCollider2D>(), gameObject.GetComponentInParent<CircleCollider2D>());
+            Debug.Log("boss shielding: ignore collision");
         }
-        Destroy(gameObject);            
-
+        else{
+            Destroy(gameObject);            
+        }
     }
 }
