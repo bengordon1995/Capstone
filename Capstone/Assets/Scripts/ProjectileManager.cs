@@ -50,14 +50,16 @@ public class ProjectileManager : MonoBehaviour
                     Destroy(newProj, projectileFlightTime);
                     newProj.GetComponent<Rigidbody2D>().velocity = shootVector.normalized * (projectileSpeed + GameState.Instance.player.GetComponent<PlayerController>().speed);
 
-                    Debug.Log("Angle is ");
-                    Debug.Log(newAngle * flipper);
+                    //Debug.Log("Angle is ");
+                   // Debug.Log(newAngle * flipper);
                     if (numOfProjectile != 1)
                     {   
                         newProj.GetComponent<Rigidbody2D>().AddForce(new Vector3((newAngle * flipper) * verticalShoot, (newAngle * flipper) * horizontalShoot, 0f));
                         Debug.Log(horizontalShoot);
                         flipper *= -1;
                         newAngle += projectileAngle / numOfProjectile;
+                        Debug.Log("angle: " + newAngle);
+
                     }
 
                     timeSinceLastProjectile = 0;

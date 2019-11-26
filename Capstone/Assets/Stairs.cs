@@ -11,6 +11,7 @@ public class Stairs : MonoBehaviour
             GameState.Instance.player.transform.position = new Vector3(0f,-3f,0f);
 			RoomManager.Instance.currentRoom = Instantiate(RoomManager.Instance.entrancePrefab);
             Destroy(RoomManager.Instance.entrance);
+
 		}
 	}
 }

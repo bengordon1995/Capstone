@@ -21,7 +21,6 @@ public class RoomManager : MonoBehaviour {
     public float additionalRoomChance;
     public List<GameObject> roomPrefabs;
     public GameObject bossRoom;
-    
 
 
     private void Awake()
@@ -32,8 +31,6 @@ public class RoomManager : MonoBehaviour {
         } else {
             _instance = this;
         }
-
-        
     }
 
     void Start(){
