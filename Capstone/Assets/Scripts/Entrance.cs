@@ -15,6 +15,10 @@ public class Entrance : Room
     // Start is called before the first frame update
     void Start()
     {
+        //detach any attached cameras
+        Camera.main.transform.parent = null;
+        Camera.main.transform.position = new Vector3(0f,0f,-10f);
+
         this.doors = GameObject.FindGameObjectsWithTag("door");
         foreach (GameObject tempDoorObj in this.doors){
             tempDoorObj.AddComponent<Door>();
@@ -36,7 +40,7 @@ public class Entrance : Room
     		GameState.Instance.player.transform.position = Vector3.Lerp(start, end, elapsedTime / time);
     		yield return null;
     	}
-    	RoomManager.Instance.entrance.GetComponent<Entrance>().unlock();
+    	RoomManager.Instance.currentRoom.GetComponent<Entrance>().unlock();
     }
 
     public void unlock(){

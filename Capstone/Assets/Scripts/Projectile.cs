@@ -23,7 +23,6 @@ public class Projectile : MonoBehaviour
         //should ignore hitting other player projectiles if they end up overlapping
         if (collision.gameObject.CompareTag("projectile")){
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CircleCollider2D>(), gameObject.GetComponentInParent<CircleCollider2D>());
-            //Debug.Log("Projectile collision with other projectile, ignoring collision");
             return;
         }
         else if (collision.gameObject == GameState.Instance.player){
@@ -31,7 +30,12 @@ public class Projectile : MonoBehaviour
             //Debug.Log("Ignoring collision with player");
             return;
         }
-        Destroy(gameObject);            
-
+        else if (collision.gameObject.CompareTag("no_collide")){
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<CircleCollider2D>(), gameObject.GetComponentInParent<CircleCollider2D>());
+            Debug.Log("boss shielding: ignore collision");
+        }
+        else{
+            Destroy(gameObject);            
+        }
     }
 }

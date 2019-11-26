@@ -11,6 +11,7 @@ TagManager:
   - door
   - enemy
   - reward
+  - no_collide
   layers:
   - Default
   - TransparentFX

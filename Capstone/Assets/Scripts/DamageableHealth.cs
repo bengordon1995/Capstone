@@ -19,4 +19,8 @@ public class DamageableHealth : MonoBehaviour
     {
         healthBar.value = currentHealth / maxHealth;
     }
+
+    public void damage(int damage){
+        this.currentHealth -= damage;
+    }
 }

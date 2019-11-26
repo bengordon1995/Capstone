@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour {
     public GameObject currentRoom;
     public GameObject nextRoom;
     public GameObject entrance;
+    public GameObject entrancePrefab;
     public float additionalRoomChance;
     public List<GameObject> roomPrefabs;
     public GameObject bossRoom;
