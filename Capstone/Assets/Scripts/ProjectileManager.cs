@@ -36,7 +36,7 @@ public class ProjectileManager : MonoBehaviour
         timeSinceLastProjectile += Time.deltaTime;
         if (timeSinceLastProjectile > reloadTime)
         {
-            if (Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down"))
+            if (Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down"))            
             {
                 Vector3 shootDir = new Vector3(Input.GetAxisRaw("HorizontalShoot"), Input.GetAxisRaw("VerticalShoot"), 0f).normalized;
                 float spreadIncrement = projectileAngle / numOfProjectile;
@@ -45,7 +45,7 @@ public class ProjectileManager : MonoBehaviour
                 for (int i = 0; i < numOfProjectile; i++)
                 {
                     Rigidbody2D newProj = Instantiate<Rigidbody2D>(projectilePrefab, GameState.Instance.player.transform.position + shootDir, Quaternion.identity);
-                    newProj.velocity = shootDir;
+                    newProj.velocity = shootDir * projectileSpeed;
                     shootDir = Quaternion.Euler(0f, 0f, spreadIncrement) * shootDir; // rotate the shoot direction by the necessary fraction of the arc
                 }
 

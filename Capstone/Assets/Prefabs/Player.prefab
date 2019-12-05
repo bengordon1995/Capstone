@@ -136,12 +136,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 0.25
   projectileSize: 1
-  projectileSpeed: 2
+  projectileSpeed: 1.5
   projectileFlightTime: 5
   projectilePrefab: {fileID: 3011394977959964173, guid: 35e23ca174d272a42b43352c250dd63b,
     type: 3}
   horizontalShoot: 0
   verticalShoot: 0
+  shootVector: {x: 0, y: 0, z: 0}
+  numOfProjectile: 1
+  projectileAngle: 180
 --- !u!114 &8675997078373689674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +161,8 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   direction: {x: 0, y: 0}
+  maxSpeed: 0
+  dragCoefficient: 0
 --- !u!114 &3433002711836299564
 MonoBehaviour:
   m_ObjectHideFlags: 0
