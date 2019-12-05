@@ -12,6 +12,7 @@ TagManager:
   - enemy
   - reward
   - no_collide
+  - checkpoint
   layers:
   - Default
   - TransparentFX
