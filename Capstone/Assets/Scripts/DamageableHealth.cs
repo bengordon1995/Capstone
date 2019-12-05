@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class DamageableHealth : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class DamageableHealth : MonoBehaviour
     void Update ()
     {
         healthBar.value = currentHealth / maxHealth;
+        if (this.currentHealth == 0){
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void damage(int damage){

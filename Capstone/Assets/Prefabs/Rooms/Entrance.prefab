@@ -332,9 +332,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locked: 0
   doors: []
+  rewards: []
   startCutscenePosition: {x: 0, y: -7, z: 0}
   endCutscenePosition: {x: 0, y: -1, z: 0}
-  cutsceneTime: 5
+  cutsceneTime: 1
 --- !u!1 &8363656131057189523
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +627,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
         type: 3}
+      propertyPath: m_Tiles.Array.data[37].first.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
+        type: 3}
+      propertyPath: m_Tiles.Array.data[38].first.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
+        type: 3}
+      propertyPath: m_Tiles.Array.data[39].first.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
+        type: 3}
       propertyPath: m_Tiles.Array.data[40].first.x
       value: 2
       objectReference: {fileID: 0}
@@ -656,41 +672,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
         type: 3}
-      propertyPath: m_Tiles.Array.data[46].first.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[47].first.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[48].first.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[49].first.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[50].first.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[51].first.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[52].first.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
       propertyPath: m_TileAssetArray.Array.data[0].m_RefCount
       value: 46
       objectReference: {fileID: 0}
@@ -709,27 +690,13 @@ PrefabInstance:
       propertyPath: m_TileColorArray.Array.data[0].m_RefCount
       value: 46
       objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[39].first.x
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[37].first.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557708681402802082, guid: 7dcb417065a77cc40b305d79964f641a,
-        type: 3}
-      propertyPath: m_Tiles.Array.data[38].first.x
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 6671539921655550109, guid: 7dcb417065a77cc40b305d79964f641a,
         type: 3}
       propertyPath: m_Name
       value: Hall_5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2767897462007084017, guid: 7dcb417065a77cc40b305d79964f641a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7dcb417065a77cc40b305d79964f641a, type: 3}
 --- !u!1 &4535562571324863164 stripped
 GameObject:
