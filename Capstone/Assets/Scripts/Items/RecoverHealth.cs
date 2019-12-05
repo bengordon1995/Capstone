@@ -5,7 +5,7 @@ using UnityEngine;
 public class RecoverHealth : Item
 
 {
-    public float health = 10f;
+    private float health = 100f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +20,8 @@ public class RecoverHealth : Item
 
     protected override void powerUpAction()
     {
-        GameObject.Find("Player").GetComponent<DamageableHealth>().maxHealth += health;
-        GameObject.Find("Player").GetComponent<DamageableHealth>().currentHealth += health;
+        //GameObject.Find("Player").GetComponent<DamageableHealth>().maxHealth += health;
+        GameObject.Find("Player").GetComponent<DamageableHealth>().currentHealth = health;
     }
 
 
